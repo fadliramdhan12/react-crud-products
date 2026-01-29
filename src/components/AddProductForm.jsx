@@ -14,7 +14,6 @@ export default function AddProduct({ onAdd }) {
   const fetchCategories = async () => {
     try {
       const res = await getCategories();
-      // Jika API return array string atau object, sesuaikan
       if (typeof res.data[0] === "object") {
         setCategories(res.data);
         setCategory(res.data[0].name || res.data[0].slug);
@@ -36,7 +35,7 @@ export default function AddProduct({ onAdd }) {
         title,
         price: Number(price),
         description: "New Product",
-        category, // string
+        category,
       });
 
       const newProduct = {
